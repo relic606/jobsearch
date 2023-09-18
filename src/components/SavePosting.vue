@@ -1,28 +1,15 @@
 <script setup>
-import { ref, defineEmits } from "vue";
-
-const emit = defineEmits(["close-modal", "addJob"]);
-
+import { ref } from "vue";
 const company = ref("");
 const title = ref("");
 const url = ref("");
-const pay = ref("");
-const location = ref("");
-const date = ref("");
-const selected = ref("");
 const notes = ref("");
-const status = ref("");
 
 function resetValues() {
   company.value = "";
   title.value = "";
   url.value = "";
-  pay.value = "";
-  location.value = "";
-  date.value = "";
-  selected.value = "";
   notes.value = "";
-  status.value = "";
 }
 
 const setLocalStorageContent = () => {
@@ -30,12 +17,12 @@ const setLocalStorageContent = () => {
     company: company.value,
     title: title.value,
     url: url.value,
-    pay: pay.value,
-    location: location.value,
-    date: date.value,
-    selected: selected.value,
+    pay: null,
+    location: null,
+    date: null,
+    selected: null,
     notes: notes.value,
-    status: status.value,
+    status: "Saved",
     id: null,
   };
 
@@ -48,58 +35,34 @@ const setLocalStorageContent = () => {
   }
   parsedJobs.push(applicationForm);
 
-  console.log(parsedJobs);
-
   const serializedJobList = JSON.stringify(parsedJobs);
 
-  // console.log(serializedJobList);
-
   localStorage.setItem("jobs", serializedJobList);
-  emit("addJob", applicationForm);
-
-  //   console.log(JSON.parse(localStorage.jobs));
-};
-
-const removeLocalStorageContent = () => {
-  localStorage.removeItem("jobs");
-  console.log(localStorage);
 };
 </script>
 
 <template>
   <div className="modal-overlay">
     <div class="modal">
-      <h3>Add Application</h3>
+      <h3>Save Job Posting</h3>
       <div>
         <input v-model="company" placeholder="Company" class="border" />
         <input v-model="title" placeholder="Job Title" class="border" />
         <input v-model="url" placeholder="URL" class="border" />
-        <input v-model="pay" placeholder="Pay Range" class="border" />
-        <input v-model="location" placeholder="Location" class="border" />
-        Applied on: <input v-model="date" type="date" />
-        <select v-model="selected">
-          <option disabled value="">Please select one</option>
-          <option>Remote</option>
-          <option>On-site</option>
-          <option>Hybrid</option>
-        </select>
         <textarea v-model="notes" placeholder="Notes here" class="border" />
-        <input v-model="status" placeholder="status" class="border" />
       </div>
       <button
         @click="
           {
             setLocalStorageContent() + $emit('close-modal') + resetValues();
-            // removeLocalStorageContent();
           }
         "
       >
-        Add Application
+        Save Posting
       </button>
       <button @click="$emit('close-modal') + resetValues()">Close</button>
       <div>
-        Controlled variables: {{ company }}, {{ selected }}, {{ title }},
-        {{ pay }}, {{ url }}, {{ location }}, {{ date }}
+        Controlled variables: {{ company }}, {{ title }}, {{ url }}, {{ notes }}
       </div>
     </div>
   </div>
