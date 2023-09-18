@@ -1,23 +1,34 @@
 <script setup>
+import SavePosting from "../components/SavePosting.vue";
 const props = defineProps(["localStorageArr"]);
-
-const filteredArr = props.localStorageArr.filter((job) => {
-  return job.status === "Saved";
-});
-
-console.log(props.localStorageArr);
 </script>
 
 <template>
   <main class="max-w-7xl flex flex-col mx-auto">
-    <button class="border w-fit mx-auto">Save Job Posting</button>
+    <button class="border w-fit mx-auto" @click="showModal = true">
+      Save Job Posting
+    </button>
+    <SavePosting v-show="showModal" @close-modal="showModal = false" />
     <h2>Saved Postings</h2>
     <div class="border">
       <ul>
-        <li v-for="job in filteredArr" :key="job.url">
-          {{ job.company }} {{ job.status }}
-        </li>
+        <template v-for="job in localStorageArr" :key="job.id">
+          <li v-if="job.status === `Saved`">
+            {{ job.company }} {{ job.status }}
+          </li>
+        </template>
       </ul>
     </div>
   </main>
 </template>
+
+<script>
+export default {
+  components: { SavePosting },
+  data() {
+    return {
+      showModal: false,
+    };
+  },
+};
+</script>

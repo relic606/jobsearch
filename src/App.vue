@@ -12,7 +12,12 @@ if (localStorage.jobs) {
   const unserializedLocalStorage = JSON.parse(localStorage.jobs);
   console.log(localStorage.jobs);
   localStorageArr.value = unserializedLocalStorage;
-} 
+}
+
+const addToLocalStorageArr = (job) => {
+  localStorageArr.value.push(job);
+  console.log(localStorageArr, job);
+};
 
 onMounted(() => {
   //   setLocalStorageContent();
@@ -38,5 +43,8 @@ const removeLocalStorageContent = () => {
       <RouterLink to="/archive" class="px-2">Archive</RouterLink>
     </nav>
   </header>
-  <RouterView :localStorageArr="localStorageArr" />
+  <RouterView
+    :localStorageArr="localStorageArr"
+    @addJob="addToLocalStorageArr"
+  />
 </template>
