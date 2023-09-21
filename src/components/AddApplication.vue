@@ -11,19 +11,6 @@ const location = ref("");
 const date = ref("");
 const selected = ref("");
 const notes = ref("");
-const status = ref("");
-
-function resetValues() {
-  company.value = "";
-  title.value = "";
-  url.value = "";
-  pay.value = "";
-  location.value = "";
-  date.value = "";
-  selected.value = "";
-  notes.value = "";
-  status.value = "";
-}
 
 const setLocalStorageContent = () => {
   const applicationForm = {
@@ -35,7 +22,7 @@ const setLocalStorageContent = () => {
     date: date.value,
     selected: selected.value,
     notes: notes.value,
-    status: status.value,
+    status: "Applied",
     id: null,
   };
 
@@ -52,12 +39,8 @@ const setLocalStorageContent = () => {
 
   const serializedJobList = JSON.stringify(parsedJobs);
 
-  // console.log(serializedJobList);
-
   localStorage.setItem("jobs", serializedJobList);
   emit("addJob", applicationForm);
-
-  //   console.log(JSON.parse(localStorage.jobs));
 };
 
 const removeLocalStorageContent = () => {
@@ -84,23 +67,18 @@ const removeLocalStorageContent = () => {
           <option>Hybrid</option>
         </select>
         <textarea v-model="notes" placeholder="Notes here" class="border" />
-        <input v-model="status" placeholder="status" class="border" />
       </div>
       <button
         @click="
           {
-            setLocalStorageContent() + $emit('close-modal') + resetValues();
+            setLocalStorageContent() + $emit('close-modal');
             // removeLocalStorageContent();
           }
         "
       >
         Add Application
       </button>
-      <button @click="$emit('close-modal') + resetValues()">Close</button>
-      <div>
-        Controlled variables: {{ company }}, {{ selected }}, {{ title }},
-        {{ pay }}, {{ url }}, {{ location }}, {{ date }}
-      </div>
+      <button @click="$emit('close-modal')">Close</button>
     </div>
   </div>
 </template>
