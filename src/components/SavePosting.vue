@@ -5,6 +5,8 @@ const title = ref("");
 const url = ref("");
 const notes = ref("");
 
+const emit = defineEmits(["close-modal", "addJob"]);
+
 function resetValues() {
   company.value = "";
   title.value = "";
@@ -34,6 +36,7 @@ const setLocalStorageContent = () => {
     applicationForm.id = 1;
   }
   parsedJobs.push(applicationForm);
+  emit("addJob", applicationForm);
 
   const serializedJobList = JSON.stringify(parsedJobs);
 
@@ -61,9 +64,6 @@ const setLocalStorageContent = () => {
         Save Posting
       </button>
       <button @click="$emit('close-modal') + resetValues()">Close</button>
-      <div>
-        Controlled variables: {{ company }}, {{ title }}, {{ url }}, {{ notes }}
-      </div>
     </div>
   </div>
 </template>

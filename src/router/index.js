@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
-import ApplicationsView from "../views/ApplicationsView.vue";
 import ArchiveView from "../views/ArchiveView.vue";
 import SavedView from "../views/SavedView.vue";
 
@@ -11,12 +10,6 @@ const router = createRouter({
       path: "/",
       name: "home",
       component: HomeView,
-      props: true,
-    },
-    {
-      path: "/applications",
-      name: "applications",
-      component: ApplicationsView,
       props: true,
     },
     {
