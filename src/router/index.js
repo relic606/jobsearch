@@ -4,22 +4,23 @@ import ArchiveView from "../views/ArchiveView.vue";
 import SavedView from "../views/SavedView.vue";
 
 const router = createRouter({
+  base: "/projects/jobsearch",
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: "/projects/jobsearch",
+      path: "/",
       name: "home",
       component: HomeView,
       props: true,
     },
     {
-      path: "/projects/jobsearch/saved",
+      path: "/saved",
       name: "saved",
       component: SavedView,
       props: true,
     },
     {
-      path: "/projects/jobsearch/archive",
+      path: "/archive",
       name: "archive",
       component: ArchiveView,
       props: true,
