@@ -2,6 +2,7 @@
   "name": "job-search",
   "version": "0.0.0",
   "private": true,
+  "homepage": "https://andrewtanderson.com/projects/jobsearch",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
