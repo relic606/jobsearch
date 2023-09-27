@@ -7,19 +7,19 @@ const router = createRouter({
 	history: createWebHistory(import.meta.env.BASE_URL),
 	routes: [
 		{
-			path: "/",
+			path: "/projects/jobsearch",
 			name: "home",
 			component: HomeView,
 			props: true
 		},
 		{
-			path: "/saved",
+			path: "/projects/jobsearch/saved",
 			name: "saved",
 			component: SavedView,
 			props: true
 		},
 		{
-			path: "/archive",
+			path: "/projects/jobsearch/archive",
 			name: "archive",
 			component: ArchiveView,
 			props: true
