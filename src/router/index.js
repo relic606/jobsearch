@@ -4,6 +4,7 @@ import ArchiveView from "../views/ArchiveView.vue";
 import SavedView from "../views/SavedView.vue";
 
 const router = createRouter({
+  base: "/projects/jobsearch",
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
