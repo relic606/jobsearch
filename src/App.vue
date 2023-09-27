@@ -45,17 +45,17 @@ const modifyLocalStorageArr = (updates) => {
 					<div class="flex">
 						<div class="hidden sm:ml-6 sm:flex sm:space-x-8">
 							<RouterLink
-								to="/"
+								to="/projects/jobsearch"
 								class="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-900"
 								>Applications</RouterLink
 							>
 							<RouterLink
-								to="/saved"
+								to="/projects/jobsearch/saved"
 								class="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-900"
 								>Saved</RouterLink
 							>
 							<RouterLink
-								to="/archive"
+								to="/projects/jobsearch//archive"
 								class="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-900"
 								>Archive</RouterLink
 							>
