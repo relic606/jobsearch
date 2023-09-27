@@ -7,6 +7,9 @@ import vueJsx from "@vitejs/plugin-vue-jsx";
 // https://vitejs.dev/config/
 export default defineConfig({
 	base: "/projects/jobsearch",
+	build: {
+		assetsDir: "projects/jobsearch/assets"
+	},
 	plugins: [vue(), vueJsx()],
 	resolve: {
 		alias: {
