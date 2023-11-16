@@ -1,6 +1,5 @@
 <script setup>
 import { Disclosure } from "@headlessui/vue";
-
 import { RouterLink, RouterView } from "vue-router";
 import { ref } from "vue";
 
