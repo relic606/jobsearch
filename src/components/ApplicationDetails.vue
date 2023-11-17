@@ -170,7 +170,12 @@ const updates = {
 						<option value="Pending response">Pending Response</option>
 						<option value="Interviewing">Interviewing</option>
 						<option value="Applied">Applied</option>
-						<option value="Saved" v-if="props.job.status === `Saved`">
+						<option
+							value="Saved"
+							v-if="
+								props.job.status === `Saved` || props.job.status === `Closed`
+							"
+						>
 							Saved
 						</option>
 						<option value="Closed">Closed</option>

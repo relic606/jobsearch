@@ -20,7 +20,7 @@ if (localStorage.jobs) {
 			date: "2023-11-03",
 			selected: "On-site",
 			notes:
-				"Maybe this year?  If application moves forward, Emphasize how inexpensive I will be, and promise to lose all of their games for optimal rebuilding.",
+				"Maybe this year?  If application moves forward, emphasize how inexpensive I will be, and promise to lose all of their games for optimal rebuilding.",
 			status: "Applied",
 			id: 1,
 			interviewDate: ""
@@ -74,7 +74,7 @@ if (localStorage.jobs) {
 			date: "2023-11-01",
 			selected: "On-site",
 			notes:
-				"Received declination indicating they decided to go with a more qualified candidate.  Next time for an interview, I'll try less Hannibal Lecter, and more Spongebob.",
+				"Received declination indicating they decided to go with a more qualified candidate.  Next time for an interview, I'll try less Hannibal Lecter and more Spongebob.",
 			status: "Closed",
 			id: 5,
 			interviewDate: "2023-11-06"
