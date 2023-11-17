@@ -157,18 +157,18 @@ export default {
 										>
 											Edit
 										</button>
-										<div v-if="showDetailsModal === true">
-											<ApplicationDetails
-												v-show="showDetailsModal"
-												@close-modal="closeModal"
-												v-bind:job="selectedJob"
-											/>
-										</div>
 									</td>
 								</tr>
 							</template>
 						</tbody>
 					</table>
+					<div v-if="showDetailsModal === true">
+						<ApplicationDetails
+							v-show="showDetailsModal"
+							@close-modal="closeModal"
+							v-bind:job="selectedJob"
+						/>
+					</div>
 				</div>
 			</div>
 		</div>
