@@ -7,6 +7,7 @@ const localStorageArr = ref([]);
 
 if (localStorage.jobs) {
 	const unserializedLocalStorage = JSON.parse(localStorage.jobs);
+	console.log(unserializedLocalStorage);
 	localStorageArr.value = unserializedLocalStorage;
 } else {
 	localStorageArr.value = [
