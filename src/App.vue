@@ -7,8 +7,78 @@ const localStorageArr = ref([]);
 
 if (localStorage.jobs) {
 	const unserializedLocalStorage = JSON.parse(localStorage.jobs);
-	console.log(localStorage.jobs);
 	localStorageArr.value = unserializedLocalStorage;
+} else {
+	localStorageArr.value = [
+		{
+			company: "Utah Jazz",
+			title: "Point Guard",
+			url: "www.utahjazz.com",
+			pay: "TBD",
+			location: "Salt Lake City, UT",
+			date: "2023-11-03",
+			selected: "On-site",
+			notes:
+				"Maybe this year?  If application moves forward, Emphasize how inexpensive I will be, and promise to lose all of their games for optimal rebuilding.",
+			status: "Applied",
+			id: 1,
+			interviewDate: ""
+		},
+		{
+			company: "Google Inc",
+			title: "CEO",
+			url: "www.google.com",
+			pay: "$10k / hour",
+			location: "Google Town, CA",
+			date: "2023-11-10",
+			selected: "Hybrid",
+			notes: "Requires relocation to Google Town",
+			status: "Interviewing",
+			id: 2,
+			interviewDate: "2023-11-24"
+		},
+		{
+			company: "Blizzard Entertainment",
+			title: "Overwatch Lead Game Designer",
+			url: "www.blizzard.com",
+			pay: "250k - 500k annually",
+			location: "Irvine, CA",
+			date: "2023-11-08",
+			selected: "Remote",
+			notes:
+				"Interview went great!  They responded very well to proposed balance changes to each hero.  Should hear back by end of 2023, otherwise follow up.",
+			status: "Pending response",
+			id: 3,
+			interviewDate: "2023-11-17"
+		},
+		{
+			company: "Apple Inc",
+			title: "CEO",
+			url: "www.apple.com",
+			pay: null,
+			location: null,
+			date: null,
+			selected: "",
+			notes: "Apply if Google CEO interview goes poorly.",
+			status: "Saved",
+			id: 4,
+			interviewDate: ""
+		},
+		{
+			company: "Walmart",
+			title: "Greeter",
+			url: "www.walmart.com",
+			pay: "$15.00 / hour",
+			location: "Salt Lake City, UT",
+			date: "2023-11-01",
+			selected: "On-site",
+			notes:
+				"Received declination indicating they decided to go with a more qualified candidate.  Next time for an interview, I'll try less Hannibal Lecter, and more Spongebob.",
+			status: "Closed",
+			id: 5,
+			interviewDate: "2023-11-06"
+		}
+	];
 }
 
 const addToLocalStorageArr = (job) => {
