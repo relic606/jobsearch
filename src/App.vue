@@ -5,10 +5,14 @@ import { ref } from "vue";
 
 const localStorageArr = ref([]);
 
+function sortByDate(a, b) {
+	return new Date(a.date) - new Date(b.date);
+}
+
 if (localStorage.jobs) {
 	const unserializedLocalStorage = JSON.parse(localStorage.jobs);
-	console.log(unserializedLocalStorage);
-	localStorageArr.value = unserializedLocalStorage;
+	localStorageArr.value = unserializedLocalStorage.sort(sortByDate);
+	console.log(localStorageArr.value);
 } else {
 	localStorageArr.value = [
 		{
